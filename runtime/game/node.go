@@ -27,7 +27,7 @@ func (this *GridNode) Start() {
 
 }
 func (this *GridNode) OnDetect(id string) bool {
-	if strings.Index(id, "lobby") <= 0 {
+	if strings.Index(id, "lobby") == 0 {
 		return true
 	}
 	return false

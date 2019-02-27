@@ -33,7 +33,7 @@ func (this *GridNode) OnConn(id string) {
 
 }
 func (this *GridNode) OnMsg(id string, msg []byte) {
-	if strings.Index(id, "room") <= 0 {
+	if strings.Index(id, "room") == 0 {
 		master.HandleServerMsg(id, msg)
 	} else {
 		master.HandleMsg(id, msg)
