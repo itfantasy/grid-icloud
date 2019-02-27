@@ -1,7 +1,11 @@
 package main
 
 import (
-	"github.com/itfantasy/gonode"
+	"math/rand"
+	"strconv"
+	"strings"
+
+	"github.com/itfantasy/gonode-icloud/icloud/logics/master"
 	"github.com/itfantasy/gonode/behaviors/gen_server"
 )
 
@@ -29,7 +33,11 @@ func (this *GridNode) OnConn(id string) {
 
 }
 func (this *GridNode) OnMsg(id string, msg []byte) {
-	gonode.Send(id, msg)
+	if strings.Index(id, "room") <= 0 {
+		master.HandleServerMsg(id, msg)
+	} else {
+		master.HandleMsg(id, msg)
+	}
 }
 func (this *GridNode) OnClose(id string) {
 
@@ -38,5 +46,5 @@ func (this *GridNode) OnShell(channel string, msg string) {
 
 }
 func (this *GridNode) OnRanId() string {
-	return ""
+	return "cnt-" + strconv.Itoa(rand.Intn(100000))
 }
