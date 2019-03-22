@@ -2,7 +2,7 @@ appName: grid-icloud
 cluster: 
   deployments:
   - name: room
-    enable: -1
+    enable: 1
     num: 3
     proto: kcp
     port: 35056
@@ -11,7 +11,7 @@ cluster:
     runtime: /home/docker/runtime/game
     command: ""
   - name: lobby
-    enable: -1
+    enable: 1
     num: 1
     proto: kcp
     port: 35055
