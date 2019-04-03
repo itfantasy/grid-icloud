@@ -19,8 +19,8 @@ func NewGridNode(nodeInfo *gen_server.NodeInfo) *GridNode {
 	return this
 }
 
-func (this *GridNode) Setup() (*gen_server.NodeInfo, error) {
-	return this.nodeInfo, nil
+func (this *GridNode) Setup() *gen_server.NodeInfo {
+	return this.nodeInfo
 }
 
 func (this *GridNode) Start() {
