@@ -6,8 +6,6 @@ import (
 	"github.com/itfantasy/gonode/behaviors/gen_server"
 	"github.com/itfantasy/gonode/utils/ini"
 	"github.com/itfantasy/gonode/utils/io"
-
-	"github.com/itfantasy/gonode-icloud/icloud/behaviors/lobby"
 )
 
 func main() {
@@ -34,10 +32,8 @@ func setupConfig() (*gen_server.NodeInfo, error) {
 	nodeInfo.LogComp = conf.Get("log", "logcomp")
 	nodeInfo.RegComp = conf.Get("reg", "regcomp")
 
-	redisConf := conf.Get("comps", "redis")
-	if err := lobby.RegisterCoreRedis(redisConf); err != nil {
-		return nil, err
-	}
+	nodeInfo.UserDatas["redisConf"] = conf.Get("comps", "redis")
+	nodeInfo.UserDatas["defaultRoomUrl"] = conf.Get("room", "defaulturl")
 
 	return nodeInfo, nil
 }

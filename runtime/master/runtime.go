@@ -31,6 +31,9 @@ func OnLaunch(proj string, nodeId string, nodeUrl string, pub bool) {
 	nodeInfo.LogComp = conf.Get("log", "logcomp")
 	nodeInfo.RegComp = conf.Get("reg", "regcomp")
 
+	nodeInfo.UserDatas["redisConf"] = conf.Get("comps", "redis")
+	nodeInfo.UserDatas["defaultRoomUrl"] = conf.Get("room", "defaulturl")
+
 	Launch(nodeInfo)
 }
 
