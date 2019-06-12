@@ -44,6 +44,6 @@ func (this *GridNode) OnMsg(id string, msg []byte) {
 		master.HandleMsg(id, msg)
 	}
 }
-func (this *GridNode) OnClose(id string) {
+func (this *GridNode) OnClose(id string, reason error) {
 
 }

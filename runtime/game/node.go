@@ -27,6 +27,6 @@ func (this *GridNode) OnConn(id string) {
 func (this *GridNode) OnMsg(id string, msg []byte) {
 	game.HandleMsg(id, msg)
 }
-func (this *GridNode) OnClose(id string) {
+func (this *GridNode) OnClose(id string, reason error) {
 	game.HandleClose(id)
 }
